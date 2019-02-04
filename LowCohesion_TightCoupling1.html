@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lecture 02 - Low Cohesion and Tight Coupling</title>
+<style>
+.body {
+font-size: 1.5em;
+}
+</style>
+<script>
+var student = {
+  name: "",
+  type: "student"
+};
+
+document.addEventListener('DOMContentLoaded', contentLoaded);
+
+function contentLoaded(event) {
+  document.getElementById('name').addEventListener("keyup", keyUp);
+}
+
+function keyUp(event) {
+  calculateNumericOutput();
+}
+
+function calculateNumericOutput() {
+  student.name = document.getElementById('name').value;
+
+  var totalNameValue = 0;
+  for (var i = 0; i < student.name.length; i++) {
+    totalNameValue += student.name.charCodeAt(i);
+  }
+
+  // Insert result into page
+  var output = "Total Numeric value of person's name is " + totalNameValue;
+  document.getElementById('output').innerText = output;
+}
+</script>
+</head>
+<body>
+<h1>Low Cohesion and Tight Coupling</h1>
+<div id="nameCalculator">
+<div>
+Your name: <input type="text" id="name">
+</div>
+<div id="output"></div>
+</div>
+</body>
+</html>
